@@ -4,7 +4,7 @@ import { BIOMES, Biome, DEFAULT_BASE_BIOME, DEFAULT_SELECTED_BIOMES } from "@lib
 import { FormControl } from "@mui/material";
 import { centeredColumn } from "@styles/index.style";
 import { useMap } from "hooks/MapProvider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import CheckboxGroup from "./form/CheckboxGroup";
 import InputSlider from "./form/InputSlider";
@@ -33,7 +33,7 @@ function Form(): JSX.Element {
   const [mapWidth, setMapWidth] = useState<number>(10);
   const [mapHeight, setMapHeight] = useState<number>(10);
 
-  const { generateMapSettings, loading, mapSettings } = useMap();
+  const { generateMapSettings, loading } = useMap();
 
   const handleBiomesChange = (value: Biome[]) => {
     setBiomes(value);
@@ -52,10 +52,6 @@ function Form(): JSX.Element {
       height: mapHeight,
     });
   };
-
-  useEffect(() => {
-    console.log(mapSettings);
-  }, [mapSettings]);
 
   return (
     <FormContainer>

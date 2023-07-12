@@ -18,7 +18,6 @@ export interface MapSettings {
 }
 
 export async function generateMapFromAPI(config: MapConfig): Promise<MapSettings> {
-  console.log("config", config);
   const response = await axios.post("http://localhost:3005/api/map/random", config);
   return response.data as MapSettings;
 }
