@@ -11,10 +11,24 @@ const THEME = {
     lightGrey: "#FAFAFA",
     white: "#FFFFFF",
   },
+  fontSize: {
+    s: "0.75rem",
+    m: "1rem",
+    l: "1.5rem",
+    xl: "2.5rem",
+  },
+  fontFamily: {
+    main: '"Open Sans", sans-serif',
+  },
   spacing: {
+    m: "0.75em",
     l: "1em",
     xl: "2em",
   },
+  radius: {
+    s: "0.25em",
+  },
+  mobileThreshold: 768,
 };
 
 interface IProps {

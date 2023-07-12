@@ -37,6 +37,7 @@ const globalStyle = css`
   canvas,
   footer,
   header,
+  main,
   menu,
   nav,
   section {
@@ -45,7 +46,7 @@ const globalStyle = css`
     border: 0;
     font: inherit;
     vertical-align: baseline;
-    font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
   }
 
   ul {
@@ -63,4 +64,10 @@ const centeredColumn = css`
   align-items: center;
 `;
 
-export { globalStyle, centeredColumn };
+const topRow = css`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export { globalStyle, centeredColumn, topRow };
