@@ -1,6 +1,8 @@
 import { css } from "@emotion/react";
 
 const globalStyle = css`
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
+
   html,
   body,
   div,
@@ -43,6 +45,7 @@ const globalStyle = css`
     border: 0;
     font: inherit;
     vertical-align: baseline;
+    font-family: "Open Sans", sans-serif;
   }
 
   ul {
