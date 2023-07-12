@@ -12,10 +12,10 @@ const StyledAppContainer = styled.div`
 `;
 
 const MainContainer = styled.main(
-  ({ theme: { mobileThreshold, spacing } }) => css`
+  ({ theme: { mobileThreshold, space } }) => css`
     ${topRow}
     width: 100%;
-    padding: ${spacing.xl};
+    padding: ${space.xl};
 
     @media (max-width: ${mobileThreshold}px) {
       ${centeredColumn}

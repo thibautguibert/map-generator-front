@@ -3,14 +3,14 @@ import styled from "@emotion/styled";
 import { centeredColumn } from "@styles/index.style";
 
 const HeaderContainer = styled.div(
-  ({ theme: { mobileThreshold, spacing, colors } }) => css`
+  ({ theme: { mobileThreshold, space, colors } }) => css`
     ${centeredColumn}
     width: 100%;
-    padding: ${spacing.xl} 0;
+    padding: ${space.xl} 0;
     background-color: ${colors.lightGrey};
 
     @media (max-width: ${mobileThreshold}px) {
-      padding: ${spacing.l} 0;
+      padding: ${space.l} 0;
     }
   `,
 );

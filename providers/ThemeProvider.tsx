@@ -1,13 +1,14 @@
-import { ThemeProvider as EmotionThemeProvider } from "@emotion/react";
+import { createTheme, ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import { ReactNode } from "react";
 
-const THEME = {
+const THEME = createTheme({
   colors: {
     lighterMain: "#067F9E",
     main: "#025367",
     darkerMain: "#0D3D49",
     secondary: "#F3AA27",
     dark: "#3F3F3F",
+    transparentDark: "rgba(63, 63, 63, 0.33)",
     lightGrey: "#FAFAFA",
     white: "#FFFFFF",
   },
@@ -20,23 +21,24 @@ const THEME = {
   fontFamily: {
     main: '"Open Sans", sans-serif',
   },
-  spacing: {
+  space: {
     m: "0.75em",
     l: "1em",
     xl: "2em",
   },
   radius: {
     s: "0.25em",
+    l: "1em",
   },
   mobileThreshold: 768,
-};
+});
 
 interface IProps {
   children: ReactNode;
 }
 
 function ThemeProvider({ children }: IProps): JSX.Element {
-  return <EmotionThemeProvider theme={THEME}>{children}</EmotionThemeProvider>;
+  return <MuiThemeProvider theme={THEME}>{children}</MuiThemeProvider>;
 }
 
 export default ThemeProvider;

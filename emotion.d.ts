@@ -6,7 +6,7 @@ declare module "@emotion/react" {
     fontFamily: Record<string, string>;
     fontSize: Record<string, string>;
     screens?: Record<string, string>;
-    spacing: Record<string, string>;
+    space: Record<string, string>;
     radius?: Record<string, string>;
     mobileThreshold?: number;
   }
