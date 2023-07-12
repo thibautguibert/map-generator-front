@@ -10,6 +10,7 @@ import CheckboxGroup from "./form/CheckboxGroup";
 import InputSlider from "./form/InputSlider";
 import Selector from "./form/Selector";
 import SubmitButton from "./form/SubmitButton";
+import SwitchButton from "./form/SwitchButton";
 
 const FormContainer = styled.div(
   ({ theme: { mobileThreshold, colors, space, radius } }) => css`
@@ -32,6 +33,7 @@ function Form(): JSX.Element {
   const [numberOfBiomes, setNumberOfBiomes] = useState<number>(5);
   const [mapWidth, setMapWidth] = useState<number>(10);
   const [mapHeight, setMapHeight] = useState<number>(10);
+  const [isSquare, setIsSquare] = useState<boolean>(false);
 
   const { generateMapSettings, loading } = useMap();
 
@@ -50,6 +52,7 @@ function Form(): JSX.Element {
       numberOfBiomes,
       width: mapWidth,
       height: mapHeight,
+      squaredBiomes: isSquare,
     });
   };
 
@@ -58,9 +61,10 @@ function Form(): JSX.Element {
       <FormControl style={{ gap: "1.5rem" }}>
         <CheckboxGroup options={BIOMES} value={biomes} onChange={handleBiomesChange} />
         <Selector options={BIOMES} value={baseBiome} onChange={handleBaseBiomeChange} />
-        <InputSlider setValue={setNumberOfBiomes} value={numberOfBiomes} min={1} max={30} label="Number of biomes" />
-        <InputSlider setValue={setMapWidth} value={mapWidth} min={2} max={30} label="Width of the Map" />
-        <InputSlider setValue={setMapHeight} value={mapHeight} min={2} max={30} label="Height of the Map" />
+        <InputSlider setValue={setNumberOfBiomes} value={numberOfBiomes} min={1} max={15} label="Number of biomes" />
+        <InputSlider setValue={setMapWidth} value={mapWidth} min={2} max={20} label="Width of the Map" />
+        <InputSlider setValue={setMapHeight} value={mapHeight} min={2} max={20} label="Height of the Map" />
+        <SwitchButton label="Biome areas are squared" value={isSquare} onChange={setIsSquare} />
         <SubmitButton onSubmit={handleSubmit} ctaText="Generate Map" loading={loading} />
       </FormControl>
     </FormContainer>

@@ -8,6 +8,7 @@ export interface MapConfig {
   numberOfBiomes: number;
   width: number;
   height: number;
+  squaredBiomes: boolean;
 }
 
 export interface MapSettings {
