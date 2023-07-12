@@ -27,6 +27,11 @@ const FormContainer = styled.div(
   `,
 );
 
+const ErrorText = styled.div`
+  color: red;
+  font-size: ${({ theme: { fontSize } }) => fontSize.s};
+`;
+
 function Form(): JSX.Element {
   const [biomes, setBiomes] = useState<Biome[]>(DEFAULT_SELECTED_BIOMES);
   const [baseBiome, setBaseBiome] = useState<Biome>(DEFAULT_BASE_BIOME);
@@ -35,7 +40,7 @@ function Form(): JSX.Element {
   const [mapHeight, setMapHeight] = useState<number>(10);
   const [isSquare, setIsSquare] = useState<boolean>(false);
 
-  const { generateMapSettings, loading } = useMap();
+  const { generateMapSettings, loading, apiError } = useMap();
 
   const handleBiomesChange = (value: Biome[]) => {
     setBiomes(value);
@@ -65,6 +70,7 @@ function Form(): JSX.Element {
         <InputSlider setValue={setMapWidth} value={mapWidth} min={2} max={20} label="Width of the Map" />
         <InputSlider setValue={setMapHeight} value={mapHeight} min={2} max={20} label="Height of the Map" />
         <SwitchButton label="Biome areas are squared" value={isSquare} onChange={setIsSquare} />
+        {apiError && <ErrorText>{apiError.message}</ErrorText>}
         <SubmitButton onSubmit={handleSubmit} ctaText="Generate Map" loading={loading} />
       </FormControl>
     </FormContainer>

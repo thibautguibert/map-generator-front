@@ -12,7 +12,7 @@ export const DEFAULT_MAP_SETTINGS: MapSettings = {
 interface MapContextState {
   mapSettings: MapSettings;
   loading: boolean;
-  apiError: unknown;
+  apiError: Error | null;
   generateMapSettings: (mapConfig: MapConfig) => Promise<void>;
 }
 
@@ -31,7 +31,7 @@ interface IMapProviderProps {
 
 function MapProvider({ children }: IMapProviderProps): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
-  const [apiError, setApiError] = useState<unknown>(null);
+  const [apiError, setApiError] = useState<Error | null>(null);
   const [mapSettings, setMapSettings] = useState<MapSettings>(DEFAULT_MAP_SETTINGS);
 
   const generateMapSettings = async (mapConfig: MapConfig) => {
@@ -43,7 +43,7 @@ function MapProvider({ children }: IMapProviderProps): JSX.Element {
       const generatedSettings = await generateMapFromAPI(mapConfig);
       setMapSettings(generatedSettings);
       setLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       setApiError(error);
       setLoading(false);
     }
