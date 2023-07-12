@@ -44,7 +44,8 @@ function MapProvider({ children }: IMapProviderProps): JSX.Element {
       setMapSettings(generatedSettings);
       setLoading(false);
     } catch (error: any) {
-      setApiError(error);
+      const customError = error.response?.data || error;
+      setApiError(customError);
       setLoading(false);
     }
   };
