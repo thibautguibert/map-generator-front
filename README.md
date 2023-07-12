@@ -1,4 +1,8 @@
-# Vite + React + TypeScript + Emotion + ESlint + Jest + Prettier + Husky
+I used a template I had created before to work with my favored stack.
+
+To start the project; install dependencies (`yarn`) and you can then launch the app with `yarn dev`. This command will give you the port. Launch the API from the other repo to start generating maps.
+
+# Vite + React + TypeScript + Emotion + ESlint + Jest + Prettier + Husky + MUI
 
 A modern Vite + React + TypeScript template with pre-configured ESLint (with Airbnb JS/React rules), Prettier and Git hooks powered by Husky out of the box 📦
 
