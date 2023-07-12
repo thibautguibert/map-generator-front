@@ -37,6 +37,7 @@ function MapProvider({ children }: IMapProviderProps): JSX.Element {
   const generateMapSettings = async (mapConfig: MapConfig) => {
     setLoading(true);
     setApiError(null);
+    setMapSettings(DEFAULT_MAP_SETTINGS);
 
     try {
       const generatedSettings = await generateMapFromAPI(mapConfig);
