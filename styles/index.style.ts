@@ -40,6 +40,7 @@ const globalStyle = css`
   main,
   menu,
   nav,
+  button,
   section {
     margin: 0;
     padding: 0;

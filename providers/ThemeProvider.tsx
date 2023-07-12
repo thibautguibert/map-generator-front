@@ -22,6 +22,7 @@ const THEME = createTheme({
     main: '"Open Sans", sans-serif',
   },
   space: {
+    s: "0.5em",
     m: "0.75em",
     l: "1em",
     xl: "2em",

@@ -7,6 +7,11 @@ const CheckboxContainer = styled.div`
   ${topRow}
 `;
 
+const MuiFormLabel = styled(FormLabel)`
+  font-size: ${({ theme: { fontSize } }) => fontSize.s};
+  padding-left: 1rem;
+`;
+
 const ErrorText = styled.div`
   color: red;
   font-size: ${({ theme: { fontSize } }) => fontSize.s};
@@ -32,7 +37,7 @@ function CheckboxGroup({ options, value, onChange }: ICheckboxGroupProps) {
 
   return (
     <FormGroup>
-      <FormLabel component="legend">Pick at least one type of biome:</FormLabel>
+      <MuiFormLabel>Pick at least one type of biome</MuiFormLabel>
       <CheckboxContainer>
         {options.map((option) => (
           <FormControlLabel

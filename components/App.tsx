@@ -1,10 +1,12 @@
 import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { globalStyle, centeredColumn, topRow } from "@styles/index.style";
+import MapProvider from "hooks/MapProvider";
 import ThemeProvider from "providers/ThemeProvider";
 
 import Form from "./Form";
 import Header from "./Header";
+import Map from "./Map";
 
 const StyledAppContainer = styled.div`
   ${centeredColumn}
@@ -26,14 +28,16 @@ const MainContainer = styled.main(
 function App(): JSX.Element {
   return (
     <ThemeProvider>
-      <Global styles={globalStyle} />
-      <StyledAppContainer>
-        <Header />
-        <MainContainer>
-          <Form />
-          <div>Map</div>
-        </MainContainer>
-      </StyledAppContainer>
+      <MapProvider>
+        <Global styles={globalStyle} />
+        <StyledAppContainer>
+          <Header />
+          <MainContainer>
+            <Form />
+            <Map />
+          </MainContainer>
+        </StyledAppContainer>
+      </MapProvider>
     </ThemeProvider>
   );
 }
